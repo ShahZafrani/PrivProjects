@@ -6,8 +6,4 @@ import java.util.*;
  */
 public class BehaviorTree {
     Behavior root;
-
-
-
-
 }

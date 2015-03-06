@@ -7,10 +7,10 @@ import static java.lang.System.*;
 public class Main {
 
     public static void main(String[] args) {
-        BehaviorTree bt;
+        BehaviorTree bt = new BehaviorTree();
         //fr.TestFileReadLocation();
         FileReader.OpenFile();
         FileReader.PrintFile();
-
+        //FileReader.ParseFile(bt);
     }
 }
