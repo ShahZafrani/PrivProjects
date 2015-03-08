@@ -34,7 +34,7 @@ public class FileReader {
 
     public static void OpenFile() { //Reads the file specified by the TakeInput method
         try {
-            scanner = new Scanner(new File("Sample.xml"));//TakeInput()));
+            scanner = new Scanner(new File(TakeInput()));
         } catch (Exception e) {
             System.out.println("404 File not Found. Check to see if it is in the right directory, and that you spelled the filename properly");
         }
