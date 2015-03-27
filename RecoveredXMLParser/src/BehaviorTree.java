@@ -9,6 +9,7 @@ import java.util.*;
 public class BehaviorTree {
     Node root;
     Scanner userInput = new Scanner(System.in);
+    int counter;
 
     public BehaviorTree(Node rt) {
         root = rt;
@@ -84,8 +85,9 @@ public class BehaviorTree {
     public String breadthFirst() {
         System.out.println("You have chosen Breadth-First");
         String s = printPrompt();
-
-        return recurseBreadthFirst(s, root);
+        String result = recurseBreadthFirst(s, root) + " Steps: " + counter;
+        counter = 0;
+        return result;
         //return findBreadthFirst(s);
     }
 
@@ -110,6 +112,8 @@ public class BehaviorTree {
         return "unable to process \"" + request + "\"";
 }*/
     public String recurseBreadthFirst(String request, Node current) {
+        counter++;
+        System.out.println(current.identifier);
         for (Node n : current.children) {
             if (n.identifier.equalsIgnoreCase(request)) {
                 return chooseRandomResponse(n);
@@ -126,11 +130,15 @@ public class BehaviorTree {
     public String depthFirst() {
         System.out.println("You have chosen Depth-First");
         String s = printPrompt();
-        return recurseDepthFirst(s, root);
+        String result = recurseDepthFirst(s, root) + " Steps: " + counter;
+        counter = 0;
+        return result;
         //return findDepthFirst(s);
     }
 
     public String recurseDepthFirst(String request, Node current) {
+        counter++;
+        System.out.println(current.identifier);
         if (current.identifier.equalsIgnoreCase(request)) {
             return chooseRandomResponse(current);
         } else {
